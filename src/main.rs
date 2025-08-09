@@ -1,0 +1,40 @@
+use std::io;
+use rand::Rng;
+
+fn get_guess() -> u32 {
+    let mut user_input = String::new();
+    io::stdin().read_line(&mut user_input).expect("Failed to read line");
+    let users_input: u32 = user_input.trim().parse().expect("Please enter a number");
+    users_input
+  }
+  
+  fn check_guess(secret_num: u32) {
+    for attempt in 1..=10 {
+        let user_guess = get_guess();
+
+        if user_guess == secret_num {
+            println!("You got it!");
+            return;
+        } else if user_guess > secret_num {
+            println!("Too high!");
+        } else {
+            println!("Too low!");
+        }
+
+        if attempt < 10 {
+            println!("Please guess again.");
+        }
+    }
+    println!("You lost! The number was {}.", secret_num);
+  }
+  
+  fn main() {
+    println!("You have 10 guesses to guess the number.");
+    println!("how can rounds do you want to play?");
+    let rounds = get_guess();
+    for i in 0..rounds {
+        let secret_num = rand::thread_rng().gen_range(1..101);
+        println!("Round {}: Guess the number!", i + 1);
+        check_guess(secret_num);
+    }
+  }
