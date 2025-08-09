@@ -1,3 +1,15 @@
+/* this is a guess number game and the concepts that i learned from this is are following:
+1. use of rand crate to generate random numbers
+2. use of io crate to read user input
+3. use of loop
+4. use of if else to check the user input
+5. Ownership & borrowing (mutable + immutable)
+6. Copy vs move
+7. Functions taking & returning values
+8. Loops & conditionals
+9. User input
+*/
+
 use std::io;
 use rand::Rng;
 
