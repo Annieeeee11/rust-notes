@@ -49,4 +49,7 @@ fn get_guess() -> u32 {
         println!("Round {}: Guess the number!", i + 1);
         check_guess(secret_num);
     }
+    // let secret_num = "15";
+    // let secret_num_2: String = Default::default();
+    // println!("{},{},{},{:p}", secret_num_2.capacity(), secret_num.len(), secret_num.is_empty(), secret_num.as_ptr());  
   }
