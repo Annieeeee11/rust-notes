@@ -1,5 +1,5 @@
 use rand::Rng;
-mod part2;
+mod part2; // "define/load a module and make it public to other modules/crates".
 use part2::{get_guess, check_guess, User};
   
   fn main() {

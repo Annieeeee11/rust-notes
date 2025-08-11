@@ -51,6 +51,10 @@ pub fn check_guess(secret_num: u32) {
 
 
 // structs
+
+/*
+The module’s items (functions, structs, etc.) are private by default — you need to mark them with pub if you want to access them from outside.
+*/ 
 pub struct User {
     pub name: String,
     pub id: u32,
