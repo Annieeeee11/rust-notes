@@ -20,7 +20,6 @@ const X: u32 = 1;
   }
 
 /* -----random built in functions----- */
-/* The module’s items (functions, structs, etc.) are private by default — you need to mark them with pub if you want to access them from outside. */ 
 pub fn testfun() { 
     let secret_num = "15";
     let secret_num_2: String = Default::default();
