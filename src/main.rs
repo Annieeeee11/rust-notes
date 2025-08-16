@@ -1,12 +1,3 @@
-/* 
------IMPORTS----- 
-mod part2;         // "define/load a module and make it public to other modules/crates".
-use part2::{get_guess, check_guess, User};
-mod enums;
-use enums::Shape;
-
-*/
-
 /*
 -----global variable----- 
 const X: u32 = 1; 

@@ -10,6 +10,11 @@ mod part2;   // "define/load a module and make it public to other modules/crates
 use part2::{get_guess, check_guess, User};
 */
 
+/*
+--enums import--
+use enums::Shape; // Shape == enum
+*/
+
 fn main() {
     let a = 5;
     let b = 10;
