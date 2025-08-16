@@ -1,0 +1,18 @@
+Talking about Control Flow
+
+1) if/ else Expressions
+- if expression allows you to branch your code depending on conditions
+
+2) else if Expressions
+- You can use multiple conditions by combining if and else in an else if expression.
+
+2) Using if in a let Statement
+- Because if is an expression, we can use it on the right side of a let statement to assign the outcome to a variable
+
+3)
+- The if let statement provides a more compact way to handle cases where a match statement would only have one arm that does something, and a default catch-all arm that does nothing
+- Pattern match
+- Bind values:If the pattern matches, it allows you to bind the associated data to a new variable within the if block's scope.
+*- used with enums
+
+4) Repetition with Loops
