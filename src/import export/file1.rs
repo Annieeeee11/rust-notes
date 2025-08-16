@@ -5,6 +5,11 @@ use folder1::example::testfunction12;
 mod file2;
 use file2::testfunction1;
 
+/* 
+mod part2;   // "define/load a module and make it public to other modules/crates".
+use part2::{get_guess, check_guess, User};
+*/
+
 fn main() {
     let a = 5;
     let b = 10;
