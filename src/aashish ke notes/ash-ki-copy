@@ -430,7 +430,7 @@ pub enum Option<T>{ //pub here makes the enum public to other modules
 
 
     let mut rng = thread_rng();
-    let n:u32 = rng.gen();
+    //let n:u32 = rng.gen();
     println!("Random number: {}", n);
     
 

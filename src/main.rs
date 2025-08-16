@@ -1,25 +1,28 @@
-use rand::Rng;
-mod part2; // "define/load a module and make it public to other modules/crates".
+/* 
+-----IMPORTS----- 
+mod part2;         // "define/load a module and make it public to other modules/crates".
 use part2::{get_guess, check_guess, User};
-  
+mod enums;
+use enums::Shape;
+
+*/
+
+/*
+-----global variable----- 
+const X: u32 = 1; 
+
+=> not good to use this
+*/  
+
+/* Boiler plate code */
   fn main() {
-
-    //guess number game 
-    println!("You have 10 guesses to guess the number.");
-    println!("how can rounds do you want to play?");
-    let rounds = get_guess();
-    for i in 0..rounds {
-        let secret_num = rand::thread_rng().gen_range(1..101);
-        println!("Round {}: Guess the number!", i + 1);
-        check_guess(secret_num);
-    }
-
-    //Structs
-    let user1 = User {
-        name: String::from("John"),
-        id: 1,
-        email: String::from("john@example.com"),
-        age: 20,
-    };
-    println!("{},{},{},{}",user1.name,user1.id,user1.email,user1.age ) 
+    println!("Hello World!")
   }
+
+/* -----random built in functions----- */
+/* The module’s items (functions, structs, etc.) are private by default — you need to mark them with pub if you want to access them from outside. */ 
+pub fn testfun() { 
+    let secret_num = "15";
+    let secret_num_2: String = Default::default();
+    println!("{},{},{},{:p}", secret_num_2.capacity(), secret_num.len(), secret_num.is_empty(), secret_num.as_ptr()); 
+}
