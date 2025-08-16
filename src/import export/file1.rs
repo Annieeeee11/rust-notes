@@ -1,3 +1,14 @@
+/*
+use => use to use a file from a function or a library 
+mod => use to import a file 
+*/
+
+/*
+--library--
+use std::io;
+use rand::Rng;
+*/
+
 /* import a file which is inside a folder */
 mod folder1;
 use folder1::example::testfunction12;
