@@ -4,7 +4,7 @@
 - Option enum was introduce to handle the concept of nullbility in a safe way.
 - like javascript -- rust doesnt have the concept of the null it used option enum 
 
------ -----
+----- Option enum -----
 - handles null for rust
 - use when returned value cannot exist
 - Return an option instead of Nulll

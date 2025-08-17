@@ -1,10 +1,11 @@
+// if let is another way to pattern match a short way 
 // Our example enum
 
 // if let doesnt use PartialEq which is a trait
 enum Foo {
     Bar,
     Baz,
-    Qux(u32)
+    Qux(u32),
 }
 
 fn main() {
@@ -12,18 +13,18 @@ fn main() {
     let a = Foo::Bar;
     let b = Foo::Baz;
     let c = Foo::Qux(100);
-    
+
     // Variable a matches Foo::Bar
     if let Foo::Bar = a {
         println!("a is foobar");
     }
-    
+
     // Variable b does not match Foo::Bar
     // So this will print nothing
     if let Foo::Bar = b {
         println!("b is foobar");
     }
-    
+
     // Variable c matches Foo::Qux which has a value
     // Similar to Some() in the previous example
     if let Foo::Qux(value) = c {
@@ -33,5 +34,14 @@ fn main() {
     // Binding also works with `if let`
     if let Foo::Qux(value @ 100) = c {
         println!("c is one hundred");
+    }
+}
+
+fn another_example() {
+    let some_number = Some(5);
+
+    // if let matches a pattern
+    if let Some(n) = some_number {
+        println!("The number is: {}", n);
     }
 }
