@@ -5,6 +5,10 @@ fn main() {
     x.push(3);
     println!("{:?}", x); //print vector 
 
+    // another way to creat a vector is using macro
+    let ans = vec![1,2,3];
+    println!("{:?}", ans);
+
     let u = evenn(&x);
     println!("{:?}", u);
     let m = vec(&mut x);
