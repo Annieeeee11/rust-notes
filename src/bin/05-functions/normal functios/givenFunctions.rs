@@ -28,6 +28,12 @@ Quick way to force a result when you're confident it won’t fail — and want t
 .unwrap() – does the same thing but with a generic panic message.
 
 ----- .unwrap() -----
+- this unwraps the returns, when the developer is sure that something will return something 
+- this should return or will crash the error
+- it should not be used except a few situation like: 
+when project start you connect to a database. if the db dosent exist it is good to crash 
+
+
 Also used on Result or Option types to extract the value, but panics with a default message if there’s an error.
 simple version -- Extract value or panic (default msg)
 -- Downside: --
