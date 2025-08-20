@@ -1,3 +1,5 @@
+/* use to fetch current time */
+
 use chrono::{Utc, Local};
 
 fn main() {

@@ -1,3 +1,5 @@
+/* used for env */
+
 use dotenv::dotenv;
 use std::env;
 
