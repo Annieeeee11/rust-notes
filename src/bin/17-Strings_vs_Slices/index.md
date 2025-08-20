@@ -3,18 +3,24 @@ Talking about Strings and slice -
 
 1. String
 -> Heap allocated → data lives on the heap.
+
 -> Growable → you can add, remove, or change text.
+
 -> Owns its contents → it’s responsible for cleaning up memory when it goes out of scope.
+
 -> Useful when you need to build, modify, or store a string.
 
 
 2. &str (string slice)
 -> A view into a string, like a window over existing data.
+
 -> Can point to:
                 Part of a String
                 A string literal ("hello")
 -> Immutable → you cannot change it.
+
 ->Does not own data → it borrows from somewhere else.
+
 
 
 | Feature          | `String`                             | `&str` (slice)                           |
