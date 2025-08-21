@@ -51,8 +51,18 @@ fn search_book(library: &Vec<Book>) {
     }
 }
 
-// fn _remove_book(library: &mut Vec<Book>) {
-// }
+fn remove_book(library: &mut Vec<Book>) {
+    println!("Enter book title to delete:");
+    let search_input = user_input();
+    for book in library {
+        if book.title.to_lowercase() == search_input {
+            book.price.remove();
+            book.id.remove();
+            book.author.remove();
+            book.title.remove();
+        }
+    }
+}
 
 fn main() {
     let mut library: Vec<Book> = Vec::new(); // We’ll store multiple books here
@@ -64,7 +74,7 @@ fn main() {
             "add" => add_book(&mut library),
             "search" => search_book(&library),
             "list" => list_books(&library),
-            // "remove" => remove_book(&mut library),
+            "remove" => remove_book(&mut library),
             "exit" => break,
             _ => println!("Unknown command"),
         }

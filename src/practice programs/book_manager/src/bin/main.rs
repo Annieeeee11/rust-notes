@@ -107,14 +107,16 @@ impl Library {
         println!("Enter book ID to remove:");
         let id: u32 = user_input()
         .parse()
-        .map_err(|_| "Invalid ID".to_string())?;
+        .map_err(|_| "Invalid ID".to_string())?; // Changes the error type into a String(return user-friendly messages, not scary Rust errors)
 
-        if let Some(pos) = self.book.iter().position(|b| b.id == id) {
+        if let Some(pos) = self.book.iter() // gives us an iterator over all books in self.book
+        .position(|b| b.id == id) { // goes through each book and checks -- If found at index i then returns Some(i) -- returns None
             self.book.remove(pos);
             println!("Book removed successfully!");
             Ok(())
         } else {
-            Err("Book ID not found".to_string())
+            Err("Book ID not found".to_string()) 
+//.to-string() Because Rust error handling usually works with Result<T, String>. We turn "Invalid ID" (a string literal) into an owned String
         }
     }
 }
