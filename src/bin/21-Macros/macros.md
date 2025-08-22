@@ -41,7 +41,7 @@ struct User {
     username: String,
 }
 // this debug tells the println how to print the struct
-imp Debug for User {
+impl Debug for User {
 // this is important function we have to make it because it is present in debug trait
 
     fn fmt(&self,f: &mut Formatter<'_> ) -> std::fmt::Result {
