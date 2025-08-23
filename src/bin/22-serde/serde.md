@@ -6,7 +6,8 @@ Talking about serde ->
 
 ---- install ----
 
-- cargo add serde
+- cargo add serde  => this helps to provide the serialization and deserialization structure
+- cargo add serde_json  => this helps in formate
 
 - Use serde_json alone → if you only want quick parsing into dynamic JSON (Value).
 - Use serde + serde_json → if you want to work with your own Rust structs/enums in JSON.
