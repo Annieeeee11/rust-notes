@@ -1,6 +1,12 @@
 Talking about serde ->
 
-- its a popular serialization and deserialization framework in Rust. 
+- converts a string into struct data -- json data into struct.
+
+- convert struct to string => serialization
+- comvert string to struct =>  deserialization
+
+
+- its a popular serialization and deserialization framework/library in Rust. 
 - It provides a way to convert Rust data structures into different formats (serialization) and vice versa (deserialization). 
 - The most common use cases involve working with formats like JSON, YAML, TOML, and others.
 
@@ -18,3 +24,9 @@ Talking about serde ->
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
+--- extra ---
+
+- to use macro we need to add the derived feature in serde
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"]}
