@@ -1,0 +1,3 @@
+# this is my rust notes 
+
+These notes may be wrong, I wrote them while learning Rust, and they are for sure not complete :)
