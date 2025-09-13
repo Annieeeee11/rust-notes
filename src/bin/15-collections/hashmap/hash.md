@@ -5,3 +5,5 @@ Talking about Hashmaps-
 - to use hashmap you gotta import it using => use std::collections::Hashmap;
 
 - common methods => insert, get, remove, clear
+
+- we can use functions like .copied(), .unwrap_or(), entry().or_insert(), 
