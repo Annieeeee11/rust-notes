@@ -39,4 +39,27 @@ fn main() {
     let s = String::from("hello jii");
     let ans = first_word(&s);
     print!("{}", ans);
+
+    //Append a single character
+    let mut test_s = String::from("lo");
+    test_s.push('l');
+    //Append a slice
+    test_s.push_str("bar");
+
+    //Using + or concatenation:
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world!"); 
+    let s3 = s1 + &s2; // s1 is moved, s2 is borrowed
+
+    // using format! macro
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let s = format!("{s1}-{s2}-{s3}");
+
+    //Can’t Index a String
+    let test_s2 = String::from("hi");
+    let h = s[0]; // error
+    /* because a String is actually a Vec<u8> underneath. so characters have different bytes so 
+    if Rust let you do s[0], you’d only get part of a character (invalid Unicode).  */
 }
