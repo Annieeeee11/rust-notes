@@ -12,5 +12,9 @@ Vectors
 
 Hashmap
 
+- allows you to store in key value pairs -> HashMap<K, V>
+
+- HashMap::new();
+
 
 
