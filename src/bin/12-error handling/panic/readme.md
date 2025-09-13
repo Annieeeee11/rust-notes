@@ -18,7 +18,6 @@ cargo.toml
   ```
 
 - only use panic where it is important otherwise use result and pattern match to handle
-- functions that
 
   ```
   // this will panic 
