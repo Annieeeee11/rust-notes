@@ -1,15 +1,18 @@
-Talking abot lifetimes ->
+# Talking about Lifetimes
 
-- A lifetime is a construct the compiler (or more specifically, its borrow checker) uses to ensure all borrows are valid.
+## What are Lifetimes?
 
-- we only have to deal with this when we are borrowing strings 
+- A lifetime is a construct the compiler (or more specifically, its borrow checker) uses to ensure all borrows are valid.
+
+- we only have to deal with this when we are borrowing strings
 
 - used with Anchor for sure
 
+---
 
----------- Understand we an example ----------
+## Understand with an example
 
-```
+```rust
 fn main() {
     let str1 = String::from("hello1");
     let ans;
@@ -21,57 +24,66 @@ fn main() {
 }
 ```
 
-- eg  =>  in the above case if the str2 is greater than str1 then where will ans point while printing. 
-        cause str2 scops ends and then ans prints so is answer is str2 what will it print? 
+### The Problem:
+
+- eg  =>  in the above case if the str2 is greater than str1 then where will ans point while printing.
+        cause str2 scops ends and then ans prints so is answer is str2 what will it print?
         cause str2 wil be cleand from the memory by then so that will become a dangling pointer
 
-- what rust compiler think => so rust things other code can also some how cause the same memory issues while 
-                            borrow code so it implements/specify lifetime and stop the code, now we can you   
-                            use the lifetime concept the write code and that will cause no issues 
+- what rust compiler think => so rust things other code can also some how cause the same memory issues while
+                            borrow code so it implements/specify lifetime and stop the code, now we can you
+                            use the lifetime concept the write code and that will cause no issues
 
+---
 
----------- Solution -----------
+## Solution
 
-- to solve this problem rust introducted lifetimes everytime someone borrow they need to specify the 
-  lifetime of the borrow using lifetime annotation using generic parameters syntax 
+- to solve this problem rust introducted lifetimes everytime someone borrow they need to specify the
+  lifetime of the borrow using lifetime annotation using generic parameters syntax
   => 'a  ,  'b  ,  't  ,  <'a , 'b>
 
-- They don’t create new lifetimes, they only name existing ones so the compiler can relate them
+- They don't create new lifetimes, they only name existing ones so the compiler can relate them
 
+---
 
----------- Solution example -----------
+## Solution Example
 
-- how to use => first define the parameters using the generic syntax i front of function 'a  ,  'b
-                these ' are used infront of variables to specify that it is used for the lifetime
-                using <> we will define parameters and then in the () we will specify what parameters
-                points to what variable and at the end we will define what variable's lifetime 
-                will the return type follow
+### How to use:
+- first define the parameters using the generic syntax i front of function 'a  ,  'b
+  these ' are used infront of variables to specify that it is used for the lifetime
+  using <> we will define parameters and then in the () we will specify what parameters
+  points to what variable and at the end we will define what variable's lifetime
+  will the return type follow
 
-```
-/* STEP 1*/ 
+**STEP 1:**
+
+```rust
 fn test<'a , 'b>() {
     // code
 }
 ```
 
-```
-/* STEP 2*/ 
+**STEP 2:**
+
+```rust
 fn test<'a , 'b>(s1: &'a String, s2: &'b String) {
     // code
 }
 ```
 
-```
-/* STEP 3*/ 
+**STEP 3:**
+
+```rust
 fn test<'a , 'b>(s1: &'a String, s2: &'b String) -> &'a String {
     // code
 }
 ```
 
+---
 
----------- Solution example -----------
+## Detailed Solution Example
 
-```
+```rust
 fn main() {
     let str1 = String::from("hello1");
     let ans;
@@ -91,17 +103,17 @@ fn long_string<'a , 'b>(s1: &'a String, s2: &'b String) -> &'a String {
 }
 ```
 
-- case 1 => the code will compiler here casue the lifetime is specified to s1 lifetime so it will let
-            the ans print cause s1 life time is longer  
+### Case 1:
+- the code will compiler here casue the lifetime is specified to s1 lifetime so it will let
+  the ans print cause s1 life time is longer
 
-- This means:
-            Function takes two references (s1, s2) with lifetimes 'a and 'b.
-            It returns a reference that is guaranteed to live as long as 'a.
+**This means:**
+- Function takes two references (s1, s2) with lifetimes 'a and 'b.
+- It returns a reference that is guaranteed to live as long as 'a.
 
-- you can only safely return s1 here -- If you try to return s2, Rust will complain unless 'b outlives 'a.
+- you can only safely return s1 here so if you try to return s2, Rust will complain unless 'b outlives 'a.
 
-
-```
+```rust
 fn main() {
     let str1 = String::from("hello1");
     let ans;
@@ -121,21 +133,24 @@ fn long_string<'a , 'b>(s1: &'a String, s2: &'b String) -> &'a String {
 }
 ```
 
-- case 2 => the compiler will throw error casue it wil say that s2 lifetime is very sort and it makes 
-          a smart decision to not run ans because str2 life span is short and return value isnt valid
+### Case 2:
+- the compiler will throw error casue it wil say that s2 lifetime is very sort and it makes
+  a smart decision to not run ans because str2 life span is short and return value isnt valid
 
-          - you promised (-> &'a String) that the return will be valid as long as 'a. Returning s2 
-          (shorter lifetime) breaks that promise
+- you promised (-> &'a String) that the return will be valid as long as 'a. Returning s2
+  (shorter lifetime) breaks that promise
 
+---
 
------------ other ways/cases -----------
+## Other Ways/Cases
 
-- case 1 => in this case if we take a single peremeter ( 'a ) -- so rust considers the worst case that
-            means it considers the smaller lifetime and return that -- which means that ans scope is 
-            till the end of the main function but dont let the user use it after the brackets make its
-            lifetime till the brackets only 
+### Case 1:
+- in this case if we take a single peremeter ( 'a ) so rust considers the worst case that
+  means it considers the smaller lifetime and return that, which means that ans scope is
+  till the end of the main function but dont let the user use it after the brackets make its
+  lifetime till the brackets only
 
-```
+```rust
 fn main() {
     let str1 = String::from("hello1");
     let ans;
@@ -154,11 +169,11 @@ fn long_string<'a>(s1: &'a String, s2: &'a String) -> &'a String {
 }
 ```
 
+### Case 2:
+- in a case where we know that the one variable is nevr return or used and the lifetime
+  should not be taken from that then we can introduces two annotations there
 
-- case 2 => in a case where we know that the one variable is nevr return or used and the lifetime 
-            should not be taken from that then we can introduces two annotations there 
-
-```
+```rust
 fn main() {
     let str1 = String::from("hello1");
     let str2 = String::from("hey2");
@@ -178,15 +193,16 @@ fn long_string<'a , 'b>(s1: &'a String, s2: &'a String, s3: &'b String) -> &'a S
 }
 ```
 
+---
 
------------ Lifetime with Structs ------------
+## Lifetime with Structs
 
 - lifetime are same with struct so if we pass a reference in a struct then we gotta specify the lifetime too
 
-- When you use references as fields inside a struct, you generally need to add lifetime parameters 
+- When you use references as fields inside a struct, you generally need to add lifetime parameters
   to ensure that references do not outlive the data they point to.
 
-```
+```rust
 #[derive(Debug)]
 struct User <'a>{
     usernmae: &'a str,
@@ -206,8 +222,9 @@ fn main() {
 }
 ```
 
------ Impl blocks -----
-```
+### Impl blocks
+
+```rust
 struct User<'a> {
     name: &'a str
 }

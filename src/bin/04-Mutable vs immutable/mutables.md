@@ -1,4 +1,6 @@
-Talking about Mutables vs Immutables
+# Talking about Mutables vs Immutables
 
-- by deafult each variable is Immutables in rust 
-- but you can make it Mutables by adding the keyword "mut"
+## Key Concepts
+
+- by deafult each variable is Immutables in rust
+- but you can make it Mutables by adding the keyword "mut" (means you can change value)

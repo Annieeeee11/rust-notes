@@ -1,42 +1,54 @@
-Talking about tes -> 
+# Talking about Tests
 
-- rust provides alot of safety checks but rust cant check our logical error 
-- eg => if a add function add 2 numbers or not 
+## Why Testing?
 
-- for that we can make test to check our logic 
+- rust provides alot of safety checks but rust cant check our logical error
+- eg => if a add function add 2 numbers or not
+
+- for that we can make test to check our logic
 
 - Rust uses the #[test] attribute to mark a test function.
-```
+
+```rust
 #[cfg(test)] // mods
 #[test] // test
 #[ignore] // ignore test
 ```
 
+---
 
-## run checks
-- check using ```cargo test``` => Runs all functions marked with #[test]
+## Run Checks
+
+- check using `cargo test` => Runs all functions marked with #[test]
 - Runs tests in parallel by default.
-- Captures stdout (your println! won’t show unless test fails or you run cargo test -- --nocapture).
+- Captures stdout (your println! won't show unless test fails or you run cargo test -- --nocapture).
 - You can filter which tests to run:
-```
+
+```bash
 cargo test it_adds_two
 ```
 
 - cargo test → compiles your code in test mode and runs the test binary (a special executable that knows how to discover and execute tests)
 
-## Rust macros for Testing
+---
 
-- assert!(condition) → fails if condition is false.
-- assert_eq!(left, right) → fails if left != right, shows both values.
-- assert_ne!(left, right) → fails if left == right.
+## Rust Macros for Testing
 
+- `assert!(condition)` → fails if condition is false.
+- `assert_eq!(left, right)` → fails if left != right, shows both values.
+- `assert_ne!(left, right)` → fails if left == right.
+
+---
 
 ## Intentional Failures
+
 - If i expect a function to panic in some cases, i can test that too using #[should_panic]
 
+---
 
 ## Organizing Tests
-- Rust testing is split into two categories:
+
+Rust testing is split into two categories:
 
 ### Unit Tests
 
@@ -44,7 +56,7 @@ cargo test it_adds_two
 - Use #[cfg(test)] mod tests { ... }.
 - Test small, private pieces of logic.
 
-```
+```rust
 // lib.rs
 pub fn add_two(x: i32) -> i32 {
     x + 2
@@ -53,7 +65,7 @@ pub fn add_two(x: i32) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
-    /* use super::*; brings the parent module’s items into scope (so tests can call add).
+    /* use super::*; brings the parent module's items into scope (so tests can call add).
        These tests (and any helpers inside tests) are compiled only for cargo test.
     */
 
@@ -70,7 +82,7 @@ mod tests {
 - Each file is compiled as a separate crate.
 - Used to test public API surface of your library.
 
-```
+```rust
 // src/lib.rs
 // tests/integration_test.rs
 
@@ -82,12 +94,16 @@ fn it_adds_two() {
 }
 ```
 
-## cargo commands 
+---
 
-- cargo test                          => Run all tests in parallel, hiding passing output
-- cargo test -- --test-threads=1	    => Run tests sequentially
-- cargo test -- --show-output       	=> Show println! output for passing tests too
-- cargo test <name>	                => Run a single test by exact name
-- cargo test <substring>	            => Run all tests whose names contain substring
-- cargo test -- --ignored	            => Run only ignored tests
-- cargo test -- --include-ignored  	=> Run all tests, even ignored ones
+## Cargo Commands
+
+| Command                                | Description                                      |
+| -------------------------------------- | ------------------------------------------------ |
+| `cargo test`                           | Run all tests in parallel, hiding passing output |
+| `cargo test -- --test-threads=1`       | Run tests sequentially                           |
+| `cargo test -- --show-output`          | Show println! output for passing tests too       |
+| `cargo test <name>`                    | Run a single test by exact name                  |
+| `cargo test <substring>`               | Run all tests whose names contain substring      |
+| `cargo test -- --ignored`              | Run only ignored tests                           |
+| `cargo test -- --include-ignored`      | Run all tests, even ignored ones                 |

@@ -1,40 +1,47 @@
-Talking about macro -
+# Talking about Macros
 
-- macro are run during the compile time 
+## What are Macros?
+
+- macro are run during the compile time
 
 - META PROGRAMMING => a program being able to another program
-- if you use marco your rust file gets compiles to a different rust file which is what then finally gets converts to the binary -- you write one line of code that converts into multiple lines of code -- code write more code 
+- if you use marco your rust file gets compiles to a different rust file which is what then finally gets converts to the binary and you write one line of code that converts into multiple lines of code and code write more code
 
-- when we add ! its not a function it is a macro 
+- when we add ! its not a function it is a macro
 
-- to write a lot of code for doing small stuff will look ugly and will be difficult so they created macro that to make big code easy and small of our use case using matea programming 
+- to write a lot of code for doing small stuff will look ugly and will be difficult so they created macro that to make big code easy and small of our use case using matea programming
 
-- eg -> println!, vec!, panic!, etc 
+- eg -> println!, vec!, panic!, etc
 
------- expand code ------
+---
+
+## Expand Code
 
 - to see the expanded we need to add a crate => cargo install cargo-expand
 
 - and then run cargo expand in the terminal so what it do is it expands the code that is writing in the file example if you use println then you cansee what it actually look like and we would have to type if we didnt used macros
 
-- you can use () or [] with macro to make function works 
+- you can use () or [] with macro to make function works
 
+---
 
--------- TYPES OF MACRO ------
+## TYPES OF MACRO
 
-1) Declerative macro -> replace the code writing with a different code during compile time -- println, vec, etc 
+### 1) Declerative macro
+- replace the code writing with a different code during compile time like println, vec, etc
 
+### 2) Procedural macro
+- allows you to define custom behavior for code. They operates on rust abstract syntax tree (ast) are commonly used for things like deriving traits automactically or creating custom attributes. Eg #[derive(Debug)]
 
-2) Procedural macro -> allows you to define custom behavior for code -- they operates on rust abstract syntax tree (ast) -- are commonly used for things like deriving traits automactically or creating custom attributes   -- eg #[derive(Debug)]
+**Debug vs Display:**
+- `println!("{:?}")` -> debug --> see everything debug it (vector, struct, enum etc)
+- `println!("{}")` -> display --> display in pretty manner (int, string, float etc)
 
-println!("{:?}")  -> debug -- see everything debug it (vector, struct, enum etc)
-println!("{}")  -> display -- display in pretty manner (int, string, float etc)
+- Procedural macro --> make life easy we can write traits manully instead of deriving but thaat makes our life difficult so its better to use this macro
 
-- Procedural macro - make life easy we can write traits manully instead of deriving but thaat makes our life difficult so its better to use this macro 
+### Manual way without procedural:
 
-- manual way without procedural
-
-```
+```rust
 use std::{Formatter, Debug};
  
 struct User {
@@ -54,25 +61,25 @@ impl Debug for User {
 }
 ```
 
+---
 
----- there are tree types of macro in procedural macro ----
+## There are three types of macro in procedural macro
 
-1) custom macro
+### 1) Custom macro
 - allows you to define how rust erives certain traits for types.
 
-```
+```rust
 #[derive(Debug)]
 struct User {
    username: String,
 }
 ```
 
-
-2) Attributes macro
+### 2) Attributes macro
 - mostly used in http server
-- it just takes a attribute/macro instead of a trait eg->
+- it just takes a attribute/macro instead of a trait eg ->
 
-```
+```rust
 #[rout("GET")]
 fn home() {
     println!("hello);
@@ -84,6 +91,22 @@ fn page() {
 }
 ```
 
+### 3) Function macro
+- Custom macros that look like function calls but expand to more code
 
-3) function macro
-- 
+```rust
+macro_rules! say_hii {
+    () => {
+        println!("hii");
+    };
+}
+
+fn main() {
+    say_hii!(); // expands to println!("hii");
+}
+```
+
+**Understand:**
+- `macro_rules!` is used to define declarative macros
+- The macro expands at compile time to the code inside the block
+- Useful for reducing repetitive code patterns 
