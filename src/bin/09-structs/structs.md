@@ -31,9 +31,9 @@ pub struct User {
 ```rust
 fn main() {
     let user1 = User {
-        name: String::from("John"),
+        name: String::from("anaya"),
         id: 1,
-        email: String::from("john@example.com"),
+        email: String::from("anaya@example.com"),
         age: 20,
     };
     
@@ -64,7 +64,7 @@ impl User {
 
 ---
 
-## Key Concepts
+## Concepts
 
 - **Ownership**: Structs own their data
 - **Methods**: Functions associated with a struct type

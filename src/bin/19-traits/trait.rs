@@ -1,5 +1,5 @@
 trait Shape {
-    //traits -- everything thatis here should be peresnt where we implement this
+    //traits is everything thatis here should be peresnt where we implement this
     fn area(&self) -> u32;
 }
 
@@ -33,7 +33,7 @@ fn main() {
     get_area(r);
 }
 
-// get_area is a function it takes s as input -- s is generic type T -- which is a bound to a trait shape
+// get_area is a function it takes s as input, s is generic type T, which is a bound to a trait shape
 fn get_area<T: Shape>(s: T) -> u32 {
     return s.area();
 }

@@ -11,7 +11,7 @@
 
 ---
 
-## Key Differences from Other Languages
+## Differences from Other Languages
 
 - This is why enums in Rust are more powerful than C style enums, they can be both a choice and a data container
 

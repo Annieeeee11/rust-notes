@@ -27,6 +27,12 @@ fn main() {
     for i in &mut v {
         *i += 50;
     }
+
+    let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Text(String::from("blue")),
+    SpreadsheetCell::Float(10.12),
+];
 }
 
 fn vec(x: &mut Vec<u32>) -> Vec<u32> {
@@ -52,7 +58,7 @@ fn evenn(x: &Vec<u32>) -> Vec<u32> {
 }
 
 fn remove(a: &mut Vec<u32>) -> Vec<u32> {
-    a.retain(|&i| i % 2 != 0); //retains return nothing its return type os () to we need to make a copy of vect to return a
+    a.retain(|&i| i % 2 != 0); // retains return nothing its return type os () to we need to make a copy of vect to return a
     a.to_vec()
 }
 
@@ -62,9 +68,3 @@ enum SpreadsheetCell {
     Float(f64),
     Text(String),
 }
-
-let row = vec![
-    SpreadsheetCell::Int(3),
-    SpreadsheetCell::Text(String::from("blue")),
-    SpreadsheetCell::Float(10.12),
-];

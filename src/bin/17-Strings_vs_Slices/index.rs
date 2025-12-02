@@ -1,9 +1,9 @@
 fn main() {
 
     let a = String::from(""); //String type 
-    let b = &a; // or &a[0..3];  -- has a view into the original string/is a reference 
+    let b = &a; // or &a[0..3]; has a view into the original string/is a reference 
     let c = "asdf"; 
-    //literal also known as &str but it points to an address in the binary -- this string is hardcorded in the final build binary and this points to that 
+    //literal also known as &str but it points to an address in the binary, this string is hardcorded in the final build binary and this points to that 
 
 
     //creating

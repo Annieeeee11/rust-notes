@@ -69,8 +69,3 @@ fn main() {
     println!("Area: {}", b.calculate_area());
     println!("Area: {}", c.calculate_area());
 }
-
-
-
-
-

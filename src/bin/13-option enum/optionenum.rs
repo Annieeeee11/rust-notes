@@ -34,13 +34,13 @@ fn testfunction2(str: String) -> Option<u32> {
 }
 
 fn testmain() {
-    let ans = testfunction1(String::from("hello"));
+    let ans = testfunction1(String::from("anaya"));
     match ans {
         Option1::Some(val) => print("hii {}", val),
         Option1::None => print("hey"),
     }
 
-    let ans2 = testfunction2(String::from("hello"));
+    let ans2 = testfunction2(String::from("anaya"));
     match ans2 {
         Option1::Some(val) => print("hii {}", val),
         Option1::None => print("hey"),
@@ -54,13 +54,13 @@ pub enum Option<T>{
     Some(T)
 }
 pub fn testfuction() {
-    let mastring = String::from("hellow this is a string");
+    let mastring = String::from("anaya this is a string");
     let mut res2 = first_a(mastring);
     match res2 {
         Some(location) => print!("{}", location),
         None=> println!("Nothing found")
     }
-    res2 = first_a(String::from("hellow this is 
+    res2 = first_a(String::from("anaya this is 
     string"));
     match res2 {
         Some(location) => print!("{}", location),

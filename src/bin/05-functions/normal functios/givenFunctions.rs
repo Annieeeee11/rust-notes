@@ -2,7 +2,7 @@
 ----- .trim() -----
 Removes leading and trailing whitespace (like spaces, tabs, and newlines) from a string.
 -- Why use it? --
-When reading user input (e.g., with read_line()), the result often includes a \n (newline) at the end. .trim() removes that so it can be safely parsed as a number or used as a clean string.
+When reading user input (e.g., with read_line()), the result often includes a   (newline) at the end. .trim() removes that so it can be safely parsed as a number or used as a clean string.
 -- Alternatives: --
 .trim_start() – trims only the beginning (leading whitespace)
 .trim_end() – trims only the end (trailing whitespace)
@@ -45,7 +45,7 @@ Pattern matching (match, if let)
 */
 
 fn trimm() {
-    let input = "  42\n";
+    let input = "  42 ";
     let trimmed = input.trim(); // "42"
     //Alternatives
     let trimmed_both = input.trim_start().trim_end(); //return a new string slice (&str)

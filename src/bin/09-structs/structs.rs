@@ -15,9 +15,9 @@ impl User {
 
 fn main() {
    let user1 = User {
-        name: String::from("John"),
+        name: String::from("anaya"),
         id: 1,
-        email: String::from("john@example.com"),
+        email: String::from("anaya@example.com"),
         age: 20,
     };
     println!("{},{},{},{}",user1.name,user1.id,user1.email,user1.age ); 

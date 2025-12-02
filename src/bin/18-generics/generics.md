@@ -6,7 +6,7 @@
 
 ---
 
-## Key Concepts
+## Concepts
 
 - Generics allow you to write flexible, reusable code that works with multiple types
 - Use `<T>` syntax to define a generic type parameter

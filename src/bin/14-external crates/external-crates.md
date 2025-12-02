@@ -80,4 +80,3 @@ fn main() {
 - Visit [crates.io](https://crates.io/) the official Rust package registry
 - Search for functionality you need
 - Check documentation, downloads, and recent updates before using
-

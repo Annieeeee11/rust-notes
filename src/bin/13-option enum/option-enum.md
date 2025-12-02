@@ -8,7 +8,7 @@
 
 ---
 
-## Key Points:
+## Points:
 
 - Option handles null-like behavior in Rust.
 - Use Option when a returned value might not exist.
@@ -47,7 +47,7 @@ fn testfunction1(str: String) -> Option1 {
 }
 
 fn main() {
-    let ans = testfunction1(String::from("hello"));
+    let ans = testfunction1(String::from("anaya"));
     match ans {
         Option1::Some(val) => println!("Found: {}", val),
         Option1::None => println!("Nothing found"),
@@ -70,19 +70,10 @@ fn first_a(s: String) -> Option<u32> {
 }
 
 fn main() {
-    let result = first_a(String::from("hello"));
+    let result = first_a(String::from("anaya"));
     match result {
         Some(location) => println!("Found 'a' at position: {}", location),
         None => println!("Character 'a' not found")
     }
 }
 ```
-
----
-
-## Why Use Option?
-
-- **Safety**: Compiler forces you to handle the `None` case
-- **No null pointer errors**: Can't accidentally use a null value
-- **Explicit**: Makes it clear when a value might be absent
-- **Pattern matching**: Easy to handle both cases with `match`

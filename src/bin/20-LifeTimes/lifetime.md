@@ -6,7 +6,7 @@
 
 - we only have to deal with this when we are borrowing strings
 
-- used with Anchor for sure
+- used with Anchor for sure :))
 
 ---
 
@@ -235,7 +235,7 @@ impl<'a> User<'a> {
     }
 }
 fn main() {
-   let name = String::from("John");
+   let name = String::from("anaya");
    let user = User::new(&name);
    println!("{}", user.name);
 }

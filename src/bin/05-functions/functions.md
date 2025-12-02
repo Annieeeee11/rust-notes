@@ -1,6 +1,6 @@
 # Talking about Functions
 
-## Key Concepts
+## Concepts
 
 - the "main" function, which is the entry point of many programs
 - "fn" keyword allows you to declare new functions.
@@ -157,10 +157,10 @@ fn main() {
 ### `.trim()`
 
 - Removes leading and trailing whitespace (like spaces, tabs, and newlines) from a string
-- When reading user input, the result often includes a `\n` (newline) at the end
+- When reading user input, the result often includes a ` ` (newline) at the end
 
 ```rust
-let input = "  42\n";
+let input = "  42 ";
 let trimmed = input.trim(); // "42"
 ```
 
